@@ -8,6 +8,10 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup Label="Embedded Resources">
+    <EmbeddedResource Include="**\*.cshtml" />
+  </ItemGroup>
+
   <ItemGroup>
     <Content Update="**\*.cshtml" CopyToPublishDirectory="Never" />
   </ItemGroup>
