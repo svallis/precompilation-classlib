@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 
 namespace app1
 {
@@ -21,7 +23,11 @@ namespace app1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            var lib1 = typeof(lib1.Program).GetTypeInfo().Assembly;
+
+            services.AddMvc()
+                .AddApplicationPart(lib1)
+                .AddRazorOptions(options => options.FileProviders.Add(new EmbeddedFileProvider(lib1)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
