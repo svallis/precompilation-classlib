@@ -17,7 +17,7 @@
     <MSBuild
       Projects="../lib1/lib1.csproj"
       Targets="MvcRazorPrecompile"
-      Properties="TargetFramework=$(TargetFramework);Configuration=$(Configuration);MvcRazorOutputPath=$(MSBuildProjectDirectory)\$(PublishDir)" />
+      Properties="TargetFramework=$(TargetFramework);Configuration=$(Configuration);MvcRazorOutputPath=$([System.IO.Path]::GetFullPath('$(PublishDir)'))" />
   </Target>
 
 </Project>
