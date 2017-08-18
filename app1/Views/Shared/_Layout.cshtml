@@ -40,6 +40,9 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <p>app1 Assembly: @GetType().Assembly</p>
+        <hr />
+        @Html.Partial("_LibPartial")
         <footer>
             <p>&copy; 2017 - app1</p>
         </footer>
