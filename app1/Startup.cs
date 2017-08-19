@@ -26,7 +26,6 @@ namespace app1
             var lib1 = typeof(lib1.Program).GetTypeInfo().Assembly;
 
             services.AddMvc()
-                .AddApplicationPart(lib1)
                 .AddRazorOptions(options => options.FileProviders.Add(new EmbeddedFileProvider(lib1)));
         }
 
