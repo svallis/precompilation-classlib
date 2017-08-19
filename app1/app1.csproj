@@ -9,15 +9,8 @@
     <ProjectReference Include="..\lib1\lib1.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-  </ItemGroup>
-
   <Target Name="_RunPrecompileForClassLib" AfterTargets="Publish">
-    <MSBuild
-      Projects="../lib1/lib1.csproj"
-      Targets="MvcRazorPrecompile"
-      Properties="TargetFramework=$(TargetFramework);Configuration=$(Configuration);MvcRazorOutputPath=$([System.IO.Path]::GetFullPath('$(PublishDir)'))" />
+    <MSBuild Projects="../lib1/lib1.csproj" Targets="MvcRazorPrecompile" Properties="TargetFramework=$(TargetFramework);Configuration=$(Configuration);MvcRazorOutputPath=$([System.IO.Path]::GetFullPath('$(PublishDir)'))" />
   </Target>
 
 </Project>
